@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <ul class="nav nav-pills nav-stacked" >
+        <button class="btn btn-primary mw-100" (click)="getData('info')">Info</button>
+        <button class="btn btn-primary w-100" (click)="getData('warn')">Warn</button>
+        <button class="btn btn-primary w-100" (click)="getData('http')">Http</button>
+        <button class="btn btn-primary w-100" (click)="getData('verbose')">Verbose</button>
+        <button class="btn btn-primary w-100" (click)="getData('debug')">Debug</button>
+        <button class="btn btn-primary w-100" (click)="getData('silly')">Silly</button>
+        <button class="btn btn-primary w-100" (click)="getData('error')">Error</button>
+      </ul>
+      <br>
+    </div>
+
+    <div class="col-sm-9">
+      <div *ngIf="logData.length != 0">
+        <h1>{{type | uppercase}} Logs ({{logData.length}})</h1>
+      </div>
+      <div *ngFor="let log of logData;let i = index">
+        Log number {{i+1}}
+        <pre><p>{{log | json}}</p></pre>
+      </div>
+      <div *ngIf="logData.length == 0">
+        <h1>No {{type | uppercase}} Logs available </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Logs</p>
+</footer>
