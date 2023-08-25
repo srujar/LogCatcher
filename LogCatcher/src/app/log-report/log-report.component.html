@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <ul class="nav nav-pills nav-stacked">
+        <button class="btn btn-primary button" (click)="getData('info');searchData=''">Info</button>
+        <button class="btn btn-primary button" (click)="getData('warn');searchData=''">Warn</button>
+        <button class="btn btn-primary button" (click)="getData('http');searchData=''">Http</button>
+        <button class="btn btn-primary button" (click)="getData('verbose');searchData=''">Verbose</button>
+        <button class="btn btn-primary button" (click)="getData('debug');searchData=''">Debug</button>
+        <button class="btn btn-primary button" (click)="getData('silly');searchData=''">Silly</button>
+        <button class="btn btn-primary button" (click)="getData('error');searchData=''">Error</button>
+      </ul>
+      <br>
+    </div>
+
+    <div class="col-sm-9">
+      <div>
+        <input type="text" [(ngModel)]="searchData">
+        <button class="btn btn-primary button-search" (click)="searchInput()">Search</button>
+      </div>
+      <div *ngIf="logData.length != 0">
+        <h1>{{type | uppercase}} Logs ({{logData.length}})</h1>
+      </div>
+      <div *ngFor="let log of logData;let i = index">
+        Log number {{i+1}}
+        <pre><p>{{log | json}}</p></pre>
+      </div>
+      <div *ngIf="logData.length == 0">
+        <h1>No {{type | uppercase}} Logs available </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Logs by Srujan R</p>
+</footer>
