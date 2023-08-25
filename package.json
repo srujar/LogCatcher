@@ -1,5 +1,5 @@
 {
-  "name": "LogCatcher",
+  "name": "LogCatcher", 
   "version": "1.0.0",
   "description": "LogCatcher",
   "main": "index.js",

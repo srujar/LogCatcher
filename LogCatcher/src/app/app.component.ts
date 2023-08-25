@@ -21,7 +21,7 @@ export class AppComponent  implements OnInit {
 
   getData(type:string){
     this.type = type;
-    this.http.get<any>(`http://localhost:4400/data?type=${type}`).subscribe(data=>{
+    this.http.get<any>(`http://13.234.48.217:4400/data?type=${type}`).subscribe(data=>{
       this.logData = data?.log;
     })
   }
